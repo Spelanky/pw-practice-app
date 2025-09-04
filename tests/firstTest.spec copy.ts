@@ -1,0 +1,19 @@
+import { test } from "@playwright/test";
+
+test.beforeEach(async ({ page }) => {
+  await page.goto("http://localhost:4200/");
+  await page.getByText("Forms").click();
+  await page.getByText("Form Layouts").click();
+});
+test.describe("suite 2", () => {
+  test.beforeEach(async ({ page }) => {
+    await page.getByText("Charts").click();
+  });
+
+  test("the first test2", async ({ page }) => {
+    await page.getByText("Form Layouts").click();
+  });
+  test("navigate to Datepicker page", async ({ page }) => {
+    await page.getByText("Datepicker").click();
+  });
+});
